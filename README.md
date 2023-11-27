@@ -1,4 +1,4 @@
-# This repository is based on the official repository by Alex Yu\*.
+# This repository is based on the official repository by Alex Yu\*. The paper was not reimplemented here.
 
 # Plenoxels: Radiance Fields without Neural Networks
 
