@@ -1,3 +1,5 @@
+# This repository is based on the official repository by Alex Yu\*.
+
 # Plenoxels: Radiance Fields without Neural Networks
 
 Alex Yu\*, Sara Fridovich-Keil\*, Matthew Tancik, Qinhong Chen, Benjamin Recht, Angjoo Kanazawa
