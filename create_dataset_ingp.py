@@ -1,5 +1,6 @@
 import glob
 import os
+import shutil
 import zipfile
 
 from opt.scripts.ingp2nsvf import convert
@@ -35,6 +36,11 @@ filename = "mva_logo"
 files_extension = ["training", "validation", "testing"]
 output_extension = ["train", "val", "test"]
 output_folder = "./Datasets/" + filename + "/"
+# Empty the folder
+if os.path.exists(output_folder):
+    shutil.rmtree(output_folder)
+os.mkdir("./Datasets/" + filename)
+os.mkdir("./Datasets/" + filename + "/" + "temp/")
 
 for incr, file_ext in enumerate(files_extension):
     path_to_folder = path_to_zip + filename + "_" + file_ext
@@ -62,8 +68,13 @@ for incr, file_ext in enumerate(files_extension):
                 "There are something else than the json and the folder in the data folder provided"
             )
 
-        new_file = path_to_folder + "/" + entry.replace("train", output_extension[incr])
+        new_file = (
+            output_folder + "temp/" + entry.replace("train", output_extension[incr])
+        )
         os.rename(current_file, new_file)
+    # Remove the created folders
+    shutil.rmtree(path_to_folder)
 
-    # Convert to a more suitable format
-    convert(path_to_folder, output_folder)
+# Convert to a more suitable format
+convert(output_folder + "temp/", output_folder)
+shutil.rmtree(output_folder + "temp/")

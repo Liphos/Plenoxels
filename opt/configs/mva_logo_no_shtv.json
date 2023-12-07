@@ -1,0 +1,10 @@
+{
+    "reso": "[256]",
+    "upsamp_every": 3840,
+    "save_img_disk": true,
+    "save_every":1,
+    "lr_sigma": 3e1,
+    "lr_sh": 1e-2,
+    "lambda_tv": 1e-5,
+    "lambda_tv_sh": 0
+}
